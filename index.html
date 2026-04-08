@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mazeed Salvador - Developer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* Define the custom font and background for the entire body */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0A192F; /* Deep Navy Blue */
+            color: #CCD6F6; /* Off-White Text */
+        }
+        /* Custom scrollbar styling (optional, for aesthetics) */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-thumb { background: #64FFDA; border-radius: 4px; }
+        ::-webkit-scrollbar-track { background: #0A192F; }
+
+        /* Custom utility class for the accent color */
+        .text-accent { color: #64FFDA; }
+        .bg-accent { background-color: #64FFDA; }
+        .border-accent { border-color: #64FFDA; }
+        .hover\:bg-accent-dark:hover { background-color: #4DEDC4; }
+
+        /* Styling for the skills icons grid */
+        .skill-item {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .skill-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(100, 255, 218, 0.1), 0 4px 6px -2px rgba(100, 255, 218, 0.05);
+        }
+        
+        /* Ensure smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .nav {
+            scroll-target-group: auto;
+        }
+
+        .nav a:target-current{
+            color: #007bff;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'navy': '#0A192F', /* Primary Background */
+                        'light-slate': '#CCD6F6', /* Primary Text */
+                        'slate': '#8892B0', /* Secondary Text */
+                        'accent': '#64FFDA', /* Primary Accent (Light Blue) */
+                        'accent-dark': '#4DEDC4', /* Hover Accent */
+                        'card-bg': '#112240', /* Card Background (Slightly lighter than navy) */
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-navy text-light-slate">
+
+    <!-- Header / Sticky Navigation -->
+    <header id="header" class="sticky top-0 z-50 bg-navy/95 backdrop-blur-sm shadow-xl transition-all duration-300">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+            <a href="#hero" class="text-3xl font-bold text-accent tracking-wider hover:text-accent-dark transition duration-300">MS</a>
+            
+            <div class="hidden md:flex space-x-8 nav">
+                 <a href="#hero" class="nav-link text-slate hover:text-accent transition duration-300">Home</a>
+                <a href="#projects" class="nav-link text-slate hover:text-accent transition duration-300">Projects</a>
+                <a href="#skills" class="nav-link text-slate hover:text-accent transition duration-300">Skills</a>
+                <a href="#about" class="nav-link text-slate hover:text-accent transition duration-300">About</a>
+                <a href="#contact" class="nav-link text-slate hover:text-accent transition duration-300">Contact</a>
+                <a href="./resume.pdf" download="" class="border border-accent text-accent px-4 py-1 rounded-md text-sm hover:bg-card-bg transition duration-300">Resume</a>
+            </div>
+
+            <button id="menu-button" class="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-accent">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            </button>
+        </nav>
+
+        <div id="mobile-menu" class="hidden md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col items-end">
+                <a href="#projects" class="nav-link text-slate hover:text-accent block px-3 py-2 rounded-md transition duration-300">Projects</a>
+                <a href="#skills" class="nav-link text-slate hover:text-accent block px-3 py-2 rounded-md transition duration-300">Skills</a>
+                <a href="#about" class="nav-link text-slate hover:text-accent block px-3 py-2 rounded-md transition duration-300">About</a>
+                <a href="#contact" class="nav-link text-slate hover:text-accent block px-3 py-2 rounded-md transition duration-300">Contact</a>
+                <a href="./resume.pdf" download="" class="border border-accent text-accent px-4 py-1 mt-2 rounded-md text-sm hover:bg-card-bg transition duration-300">Resume</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- 1. Hero Section -->
+        <section id="hero" class="min-h-screen flex items-center pt-16 md:pt-0 gap-12">
+            <div class="max-w-3xl">
+                <h1 class="text-xl text-accent mb-4">Hi, my name is</h1>
+                <h2 class="text-6xl sm:text-7xl font-extrabold text-light-slate leading-tight">Mazeed Salvador.</h2>
+                <h3 class="text-4xl sm:text-5xl font-bold text-slate mt-2">I build things for the web.</h3>
+                <p class="mt-6 text-slate max-w-lg leading-relaxed">
+                    I'm a full-stack developer specializing in creating **scalable, secure, and performant** web applications. Currently, I'm focused on architecting solutions using modern React, JavaScript and serverless architectures.
+                </p>
+                <a href="#projects" class="inline-block mt-10 px-8 py-4 border border-accent rounded-md text-accent font-medium hover:bg-card-bg transition duration-300">
+                    Check Out My Work!
+                </a>
+                
+                <!-- Social Links for Hero Section -->
+                <div class="flex space-x-6 mt-10">
+                    <!-- GITHUB SVG: Solid fill, no glow class -->
+                    <a href="https://github.com/HANJAD" target="_blank" aria-label="GitHub" class="text-slate hover:text-accent transition duration-300 transform hover:scale-110">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                            <!-- Solid GitHub Octocat Path -->
+                            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.418 2.867 8.134 6.83 9.488.5.087.687-.21.687-.474 0-.236-.008-.868-.013-1.703-2.782.605-3.37-1.34-3.37-1.34-.454-1.156-1.11-1.46-1.11-1.46-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.83.091-.643.354-1.088.643-1.342-2.22-.253-4.555-1.116-4.555-4.949 0-1.092.39-1.984 1.029-2.682-.103-.253-.446-1.272.098-2.65 0 0 .84-.268 2.75 1.022A9.66 9.66 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.29 2.747-1.022 2.747-1.022.546 1.378.202 2.397.099 2.651.64.698 1.028 1.59 1.028 2.682 0 3.841-2.339 4.69-4.566 4.939.357.307.674.92.674 1.854 0 1.34-.012 2.411-.012 2.742 0 .267.18.577.688.484C19.13 20.188 22 16.475 22 12.017 22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
+                        </svg>
+                    </a>
+                    <a href="https://linkedin.com/in/mazeed/" target="_blank" aria-label="LinkedIn" class="text-slate hover:text-accent transition duration-300 transform hover:scale-110">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                    </a>
+                    <a href="mailto:jmazeedso25@gmail.com" aria-label="Email" class="text-slate hover:text-accent transition duration-300 transform hover:scale-110">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.83 1.83 0 0 1-2.06 0L2 7"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <img width="500px" class="hidden md:block rounded-2xl" src="images/maze.jpg" alt="">
+        </section>
+
+        <!-- 2. Projects Section -->
+        <section id="projects" class="py-20">
+            <h2 class="text-4xl font-bold mb-12 text-light-slate border-b-2 border-accent/20 pb-2 inline-block">Featured Projects</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">  
+                <!-- Project Card 1: E-commerce -->
+                <div class="project-card bg-card-bg p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
+                    <img src="images/gadgets.png" alt="E-commerce Project Screenshot" class="rounded-lg mb-4 border border-slate/10">
+                    <div class="flex justify-between items-center mb-3">
+                        <h3 class="text-2xl font-semibold text-light-slate">Maze Gadgets</h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder text-accent"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
+                    </div>
+                    <p class="text-slate mb-4">Front-end project using localStorage.</p>
+                    <div class="flex flex-wrap gap-2 text-sm text-accent mb-4">
+                        <span class="bg-navy px-2 py-0.5 rounded-full">React</span>
+                        <span class="bg-navy px-2 py-0.5 rounded-full">Vite</span>
+                        <span class="bg-navy px-2 py-0.5 rounded-full">Gemini AI</span>
+                    </div>
+                    <div class="flex gap-4">
+                        <a href="https://phonestore-git-main-hanjads-projects.vercel.app/" target="_blank" class="text-sm font-medium border-b border-accent text-accent hover:text-accent-dark transition duration-300">Live Demo</a>
+                        <a href="https://github.com/HANJAD/phone_store" target="_blank" class="text-sm font-medium text-slate hover:text-accent transition duration-300" >GitHub Repo</a>
+                    </div>
+                </div>
+
+                <!-- Project Card 2: Portfolio -->
+                <div class="project-card bg-card-bg p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
+                    <img src="images/portfolio.png" alt="Portfolio Project Screenshot" class="rounded-lg mb-4 border border-slate/10">
+                    <div class="flex justify-between items-center mb-3">
+                        <h3 class="text-2xl font-semibold text-light-slate">Portfolio Assignment</h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder text-accent"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
+                    </div>
+                    <p class="text-slate mb-4">A professional portfolio build using just basic html & css.</p>
+                    <div class="flex flex-wrap gap-2 text-sm text-accent mb-4">
+                        <span class="bg-navy px-2 py-0.5 rounded-full">Html</span>
+                        <span class="bg-navy px-2 py-0.5 rounded-full">CSS</span>
+                        <span class="bg-navy px-2 py-0.5 rounded-full">Figma</span>
+                    </div>
+                    <div class="flex gap-4">
+                        <a href="https://1stportfolio-five.vercel.app/" target="_blank" class="text-sm font-medium border-b border-accent text-accent hover:text-accent-dark transition duration-300">Live Demo</a>
+                        <a target="_blank" class="text-sm font-medium text-slate hover:text-accent transition duration-300" >GitHub Repo</a>
+                    </div>
+                </div>
+
+                <!-- Project Card 3: Task Manager -->
+                <div class="project-card bg-card-bg p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
+                    <img src="images/taskpng.png" alt="Task Manager Project Screenshot" class="rounded-lg mb-4 border border-slate/10">
+                    <div class="flex justify-between items-center mb-3">
+                        <h3 class="text-2xl font-semibold text-light-slate">Task Planner</h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder text-accent"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
+                    </div>
+                    <p class="text-slate mb-4">A Simple Website built using react hooks.</p>
+                    <div class="flex flex-wrap gap-2 text-sm text-accent mb-4">
+                        <span class="bg-navy px-2 py-0.5 rounded-full">React</span>
+                        <span class="bg-navy px-2 py-0.5 rounded-full">Vite</span>
+                        <span class="bg-navy px-2 py-0.5 rounded-full">UseState</span>
+                    </div>
+                    <div class="flex gap-4">
+                        <a href="https://task-manager-rose-tau.vercel.app/" target="_blank" class="text-sm font-medium border-b border-accent text-accent hover:text-accent-dark transition duration-300">Live Demo</a>
+                        <a href="https://github.com/HANJAD/task_manager" target="_blank" class="text-sm font-medium text-slate hover:text-accent transition duration-300">GitHub Repo</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="py-20">
+            <h2 class="text-4xl font-bold mb-12 text-light-slate border-b-2 border-accent/20 pb-2 inline-block">My Technical Stack</h2>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6">
+                <div class="skill-item text-center p-4 rounded-lg bg-card-bg border border-accent/10">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-figma text-accent mx-auto mb-2"><path d="M5.5 8.5L2 12l3.5 3.5 3.5 3.5V12L5.5 8.5z"/><path d="M12 2v5.5L8.5 11l3.5 3.5V22l3.5-3.5-3.5-3.5V11L15.5 7.5V2H12z"/><path d="M15.5 8.5L19 12l-3.5 3.5-3.5 3.5V12L15.5 8.5z"/></svg>
+                    <p class="font-medium text-light-slate">React</p>
+                    <p class="text-sm text-slate">Framework</p>
+                </div>
+                
+                <div class="skill-item text-center p-4 rounded-lg bg-card-bg border border-accent/10">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-server-cog text-accent mx-auto mb-2"><rect width="20" height="8" x="2" y="2" rx="2"/><rect width="20" height="8" x="2" y="14" rx="2"/><path d="M6 6h.01"/><path d="M6 18h.01"/><circle cx="15" cy="18" r="2"/><path d="M15 14v-1"/><path d="M15 22v-1"/><path d="M19 18h1"/><path d="M11 18H9"/></svg>
+                    <p class="font-medium text-light-slate">Node.js</p>
+                    <p class="text-sm text-slate">Runtime</p>
+                </div>
+
+                <div class="skill-item text-center p-4 rounded-lg bg-card-bg border border-accent/10">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code-2 text-accent mx-auto mb-2"><path d="m5 7 2-2 2 2"/><path d="m15 17 2 2 2-2"/><path d="m18 10 3-3-3-3"/><path d="m6 14-3 3 3 3"/></svg>
+                    <p class="font-medium text-light-slate">TypeScript</p>
+                    <p class="text-sm text-slate">Language</p>
+                </div>
+
+                <div class="skill-item text-center p-4 rounded-lg bg-card-bg border border-accent/10">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-database text-accent mx-auto mb-2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 9 0 0 0 21 12"/></svg>
+                    <p class="font-medium text-light-slate">PostgresQL</p>
+                    <p class="text-sm text-slate">Database</p>
+                </div>
+
+                <div class="skill-item text-center p-4 rounded-lg bg-card-bg border border-accent/10">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cloud text-accent mx-auto mb-2"><path d="M17.5 19H17a5 5 0 0 0 0-10 4.5 4.5 0 0 0-4.5-4.5h-2A4.5 4.5 0 0 0 7 7.5a4.5 4.5 0 0 0 .5 8.5H17.5a2.5 2.5 0 0 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg>
+                    <p class="font-medium text-light-slate">AWS</p>
+                    <p class="text-sm text-slate">Cloud</p>
+                </div>
+
+                <div class="skill-item text-center p-4 rounded-lg bg-card-bg border border-accent/10">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-git-branch text-accent mx-auto mb-2"><line x1="6" x2="6" y1="3" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg>
+                    <p class="font-medium text-light-slate">Git / GitHub</p>
+                    <p class="text-sm text-slate">Version Control</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. About Section -->
+        <section id="about" class="py-20 flex flex-col md:flex-row gap-12 items-start">
+            <div class="md:w-3/5">
+                <h2 class="text-4xl font-bold mb-8 text-light-slate border-b-2 border-accent/20 pb-2 inline-block">About Me</h2>
+                
+                <p class="text-slate mb-4 leading-relaxed">
+                    Hello! My name is Mazeed, and I thrive on turning complex problems into elegant code. My coding journey started five years ago when I built my first simple static website, and I've been hooked on the fast-paced world of web development ever since.
+                </p>
+                <p class="text-slate mb-4 leading-relaxed">
+                    I believe in clean architecture, writing robust tests, and prioritizing user experience. While I specialize in the modern JavaScript ecosystem (React, Next.js, TypeScript), I have extensive experience working with server-side languages like Python and database management systems like PostgreSQL.
+                </p>
+                <p class="text-slate leading-relaxed">
+                    Outside of development, I enjoy contributing to open-source projects and mentoring junior developers. I'm currently seeking roles where I can leverage my full-stack expertise to build innovative and impactful products. Let's build something great together!
+                </p>
+            </div>
+            
+            <div class="md:w-2/5 flex justify-center md:justify-end">
+                <div class="relative w-64 h-64 rounded-xl border-2 border-accent hover:border-accent-dark transition duration-300">
+                    <img src="images/maze.jpg" alt="Mazeed Salvador's Professional Photo" class="absolute inset-0 w-full h-full object-cover rounded-xl transition duration-300 transform translate-x-3 translate-y-3 hover:translate-x-0 hover:translate-y-0 filter grayscale hover:grayscale-0">
+                    <div class="absolute inset-0 w-full h-full rounded-xl border-2 border-accent/50 pointer-events-none"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Contact Section -->
+        <section id="contact" class="py-20 text-center">
+            <p class="text-accent text-lg font-medium mb-3">What's Next?</p>
+            <h2 class="text-5xl font-bold text-light-slate mb-6">Get In Touch</h2>
+            <p class="text-slate max-w-xl mx-auto mb-10 leading-relaxed">
+                Whether you have a project idea, a job opportunity, or just want to say hi, my inbox is always open. I look forward to hearing from you!
+            </p>
+            
+            <a href="mailto:mazeedso25@gmail.com" class="inline-block mt-4 px-8 py-4 border border-accent rounded-md text-accent font-medium hover:bg-card-bg transition duration-300">
+                Say Hello
+            </a>
+
+            <div class="mt-16 max-w-lg mx-auto bg-card-bg p-8 rounded-xl shadow-2xl">
+                <form id="contact-form" method="POST">
+                    <div class="grid grid-cols-1 gap-6">
+                        <input type="text" placeholder="Your Name" required name="name" class="w-full bg-navy border border-slate/30 p-3 rounded-md focus:outline-none focus:border-accent text-light-slate">
+                        <input type="email" placeholder="Your Email" required name="email" class="w-full bg-navy border border-slate/30 p-3 rounded-md focus:outline-none focus:border-accent text-light-slate">
+                        <textarea placeholder="Your Message" rows="5" required name="message" class="w-full bg-navy border border-slate/30 p-3 rounded-md focus:outline-none focus:border-accent text-light-slate"></textarea>
+                    </div>
+                    <button type="submit" class="w-full mt-6 px-8 py-3 bg-accent text-navy font-bold rounded-md hover:bg-accent-dark transition duration-300 shadow-md">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-card-bg text-center text-slate">
+        <div class="flex justify-center space-x-6 mb-4">
+            <a href="https://github.com/HANJAD" target="_blank" aria-label="GitHub" class="text-slate hover:text-accent transition duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.418 2.867 8.134 6.83 9.488.5.087.687-.21.687-.474 0-.236-.008-.868-.013-1.703-2.782.605-3.37-1.34-3.37-1.34-.454-1.156-1.11-1.46-1.11-1.46-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.83.091-.643.354-1.088.643-1.342-2.22-.253-4.555-1.116-4.555-4.949 0-1.092.39-1.984 1.029-2.682-.103-.253-.446-1.272.098-2.65 0 0 .84-.268 2.75 1.022A9.66 9.66 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.29 2.747-1.022 2.747-1.022.546 1.378.202 2.397.099 2.651.64.698 1.028 1.59 1.028 2.682 0 3.841-2.339 4.69-4.566 4.939.357.307.674.92.674 1.854 0 1.34-.012 2.411-.012 2.742 0 .267.18.577.688.484C19.13 20.188 22 16.475 22 12.017 22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
+                </svg>
+            </a>
+            <a href="https://linkedin.com/in/mazeed/" target="_blank" aria-label="LinkedIn" class="text-slate hover:text-accent transition duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="mailto:mazeedso25@gmail.com" aria-label="Email" class="text-slate hover:text-accent transition duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.83 1.83 0 0 1-2.06 0L2 7"/></svg>
+            </a>
+        </div>
+        <p class="text-sm" id="copyright"></p>
+    </footer>
+
+        <script>
+            lucide.createIcons();
+            const copyrightYear = new Date().getFullYear();
+            document.getElementById("copyright").textContent = `Designed & Built by Mazeed Salvador ©️ ${copyrightYear}`;
+            const menuButton = document.getElementById('menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            menuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        </script>
+</body>
+</html>
