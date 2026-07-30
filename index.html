@@ -59,17 +59,24 @@
             box-shadow: 0 10px 15px -3px rgba(100, 255, 218, 0.1), 0 4px 6px -2px rgba(100, 255, 218, 0.05);
         }
 
-        /* Ensure smooth scroll behavior */
+        /* Pure CSS Scroll Spy Setup */
         html {
             scroll-behavior: smooth;
+            scroll-target-group: auto; /* Root scroll container scope */
+        }
+
+        /* Explicitly register section targets */
+        section[id] {
+            scroll-target: auto;
         }
 
         .nav {
             scroll-target-group: auto;
         }
 
+        /* Styling for active link state in CSS */
         .nav a:target-current {
-            color: #007bff;
+            color: #64FFDA !important;
             font-weight: bold;
         }
     </style>
@@ -124,7 +131,9 @@
         </nav>
 
         <div id="mobile-menu" class="hidden md:hidden">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col items-end">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col items-end nav">
+                <a href="#hero"
+                    class="nav-link text-slate hover:text-accent block px-3 py-2 rounded-md transition duration-300">Home</a>
                 <a href="#projects"
                     class="nav-link text-slate hover:text-accent block px-3 py-2 rounded-md transition duration-300">Projects</a>
                 <a href="#skills"
@@ -370,6 +379,7 @@
             </div>
         </section>
 
+        <!-- 3. Skills Section -->
         <section id="skills" class="py-20">
             <h2 class="text-4xl font-bold mb-12 text-light-slate border-b-2 border-accent/20 pb-2 inline-block">My
                 Technical Stack</h2>
